@@ -18,8 +18,8 @@ How to manage your workflow in shell without task runner (gulp, grunt, fly, just
 ## Articles
 
 -   [Why I Left Gulp and Grunt for npm Scripts](https://medium.com/free-code-camp/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8)
--   [How to Use npm as a Build Tool](https://webcache.googleusercontent.com/search?q=cache:http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 -   [Build Automation with Vanilla JavaScript](https://medium.com/@tarkus/build-automation-with-vanilla-javascript-74639ec98bad)
+-   [How to Use npm as a Build Tool](https://webcache.googleusercontent.com/search?q=cache:http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 -   [Why we should stop using Grunt & Gulp](https://webcache.googleusercontent.com/search?q=cache:https://www.keithcirkel.co.uk/why-we-should-stop-using-grunt/)
 
 ## Recipes
@@ -72,7 +72,7 @@ eslint src --ext ts
 
 ```js
 gulp.task('eslint:watch', (done) => {
-    const w = gulp.watch('src/**/*.ts', { ignoreInitial: false }, gulp.series('eslint'));
+    const w = gulp.watch('src/**/*.ts', gulp.series('eslint'));
     process.on('SIGINT', () => {
         w.close();
         done();
@@ -86,7 +86,49 @@ gulp.task('eslint:watch', (done) => {
 watchexec -w src "npm run eslint"
 ```
 
-### Parallel
+**Taskfile/Shell**
+```sh
+# Taskfile
+eslint_watch() {
+    while true; do
+        inotifywait -r src && "npm run eslint"
+    done
+}
+"$@"
+```
+```sh
+sh Taskfile eslint_watch
+```
+
+### Parallel Tasks
+
+**Gulp**
+```js
+gulp.task('dev:watch', gulp.parallel('test:watch', 'eslint:watch');
+```
+
+**npm run-p**
+```sh
+run-p "npm run test:watch" "npm run eslint:watch"
+```
+
+**npm concurrently**
+```sh
+concurrently "npm run test:watch" "npm run eslint:watch"
+```
+
+**Taskfile/Shell**
+```sh
+# Taskfile
+dev_watch() {
+    npm run test:watch 2>&1 &
+    npm run eslint:watch 2>&1 &
+}
+"$@"
+```
+```sh
+sh Taskfile dev_watch
+```
 
 ### Compile TypeScript
 
