@@ -1,0 +1,63 @@
+#!/bin/bash
+PATH="$PWD/node_modules/.bin":$PATH
+
+remark_run() {
+    node -r ts-node/register/transpile-only node_modules/remark-cli/cli.js README.md "$@"
+}
+
+remark_output() {
+    remark_run --output
+}
+
+build() {
+    set -x
+    rm -rfv dist
+    cp -rfv src dist
+    cat tsconfig.json | jq 'del(.include, .compilerOptions.outDir)' > dist/tsconfig.json
+    cp -v README.md LICENSE package.json dist
+    cd dist
+    /usr/bin/find -name '*.spec.ts' | xargs rm -rvf
+    tsc -p .
+    rm -rvf tsconfig.json
+    cd ..
+    set +x
+}
+
+build_f() {
+    ng-packagr
+}
+
+eslint_run() {
+    eslint src --ext ts
+}
+
+lint_watch() {
+    npm run tsclint:w 2>&1 &
+    npm run eslint:w 2>&1 &
+}
+
+# Need inotifywait-win32 for windows
+eslint_watch() {
+    eslint_run
+    inotifywait_cmd=`watch_cmd`
+    while true; do
+        $inotifywait_cmd -r src && \
+            eslint_run
+    done
+}
+
+watch_cmd() {
+    case `uname -o` in
+        Linux)
+            echo 'inotifywait'
+        ;;
+        Msys)
+            echo 'inotifywait-win32.cmd'
+        ;;
+        *)
+            echo 'inotifywait'
+        ;;
+    esac
+}
+
+"$@"

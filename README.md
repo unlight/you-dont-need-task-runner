@@ -1,4 +1,7 @@
 # You do not (may not) need Gulp
+How to manage your workflow in shell without task runner (gulp, grunt, fly, just, etc.)
+
+## Table of Contents
 
 ## Delete files and folders
 ###### Gulp
@@ -47,6 +50,10 @@ gulp.task('eslint:watch', (done) => {
 ```sh
 watchexec -w src "npm run eslint"
 ```
+
+## Parallel
+## Compile TypeScript
+## Copy files
 
 <!--
 ## Watch
