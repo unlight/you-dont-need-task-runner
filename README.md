@@ -1,4 +1,4 @@
-# You do not (may not) need Gulp
+# You do not (may not) need task runner
 
 How to manage your workflow in shell without task runner (gulp, grunt, fly, just, etc.)
 
@@ -113,7 +113,7 @@ gulp.task('dev:watch', gulp.parallel('test:watch', 'eslint:watch');
 **npm run-p**
 
 ```sh
-run-p "npm run test:watch" "npm run eslint:watch"
+run-p test:watch eslint:watch
 ```
 
 **npm concurrently**
@@ -149,7 +149,7 @@ gulp.task('scripts', () => {
 });
 ```
 
-npm typescript
+**npm typescript**
 
 ```sh
 tsc --project tsconfig.json --outDir dist
