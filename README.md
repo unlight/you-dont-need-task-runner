@@ -42,6 +42,12 @@ gulp.task('clean', () => {
 del "dist/report.csv" "dist/mobile/**/*"
 ```
 
+**npm rimraf**
+
+```sh
+rimraf dist
+```
+
 **Shell**
 
 ```sh
