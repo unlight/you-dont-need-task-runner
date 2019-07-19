@@ -11,7 +11,7 @@ How to manage your workflow in shell without task runner (gulp, grunt, fly, just
     -   [Delete files and folders](#delete-files-and-folders)
     -   [ESLint](#eslint)
     -   [ESLint in watch mode](#eslint-in-watch-mode)
-    -   [Parallel](#parallel)
+    -   [Parallel Tasks](#parallel-tasks)
     -   [Compile TypeScript](#compile-typescript)
     -   [Copy files](#copy-files)
 
@@ -87,6 +87,7 @@ watchexec -w src "npm run eslint"
 ```
 
 **Taskfile/Shell**
+
 ```sh
 # Taskfile
 eslint_watch() {
@@ -96,6 +97,7 @@ eslint_watch() {
 }
 "$@"
 ```
+
 ```sh
 sh Taskfile eslint_watch
 ```
@@ -103,21 +105,25 @@ sh Taskfile eslint_watch
 ### Parallel Tasks
 
 **Gulp**
+
 ```js
 gulp.task('dev:watch', gulp.parallel('test:watch', 'eslint:watch');
 ```
 
 **npm run-p**
+
 ```sh
 run-p "npm run test:watch" "npm run eslint:watch"
 ```
 
 **npm concurrently**
+
 ```sh
 concurrently "npm run test:watch" "npm run eslint:watch"
 ```
 
 **Taskfile/Shell**
+
 ```sh
 # Taskfile
 dev_watch() {
@@ -126,11 +132,28 @@ dev_watch() {
 }
 "$@"
 ```
+
 ```sh
 sh Taskfile dev_watch
 ```
 
 ### Compile TypeScript
+
+**Gulp**
+
+```js
+gulp.task('scripts', () => {
+    return gulp.src('src/**/*.ts')
+        .pipe(g.typescript())
+        .pipe(gulp.dest('dist'));
+});
+```
+
+npm typescript
+
+```sh
+tsc --project tsconfig.json --outDir dist
+```
 
 ### Copy files
 
