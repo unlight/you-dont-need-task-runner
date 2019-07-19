@@ -1,6 +1,6 @@
 # You do not (may not) need Gulp
 
-#### Delete files and folders
+## Delete files and folders
 ###### Gulp
 ```js
 const del = require('del');
@@ -18,7 +18,7 @@ npx del "dist/report.csv" "dist/mobile/**/*"
 rm -rf "dist/report.csv" "dist/mobile"
 ```
 
-#### ESLint
+## ESLint
 ###### Gulp
 ```js
 gulp.task('eslint', () => {
@@ -32,7 +32,7 @@ gulp.task('eslint', () => {
 npx eslint src --ext ts
 ```
 
-#### ESLint in watch mode
+## ESLint in watch mode
 ###### Gulp
 ```js
 gulp.task('eslint:watch', (done) => {
@@ -49,7 +49,7 @@ watchexec -w src "npm run eslint"
 ```
 
 <!--
-#### Watch
+## Watch
 
 Gulp
 ```js
