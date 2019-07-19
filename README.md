@@ -157,25 +157,18 @@ tsc --project tsconfig.json --outDir dist
 
 ### Copy files
 
-<!--
-## Watch
+**Gulp**
 
-Gulp
 ```js
-const watcher = gulp.watch(['input/*.js']);
-
-watcher.on('change', function(path, stats) {
-  console.log(`File ${path} was changed`);
+gulp.task('copy', () => {
+    return gulp.src('src/index.html')
+        .pipe(gulp.dest('dist/public'));
 });
-
-watcher.on('add', function(path, stats) {
-  console.log(`File ${path} was added`);
-});
-
-watcher.on('unlink', function(path, stats) {
-  console.log(`File ${path} was removed`);
-});
-
-watcher.close();
 ```
--->
+
+**Shell**
+
+```sh
+mkdir -p dist/public
+cp src/index.html dist/public
+```
