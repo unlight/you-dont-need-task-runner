@@ -25,6 +25,7 @@ How to manage your workflow in shell without task runner (gulp, grunt, fly, just
 -   [Helpers and tips for npm run scripts](https://michael-kuehnel.de/tooling/2018/03/22/helpers-and-tips-for-npm-run-scripts.html) - Blog post by Michael Kühnel covering advanced topics
 -   [Advanced front-end automation with npm scripts](https://www.youtube.com/watch?v=0RYETb9YVrk) - Talk at Nordic.js 2015 by Kate Hudson
 -   [How to create a build system with npm scripts](http://www.penta-code.com/how-to-create-a-build-system-with-npm-scripts/) - Video tutorial series on setting up a front-end build system
+-   [Ecosystem-free task runner that goes well with npm scripts](https://github.com/scriptype/salinger)
 
 ## Recipes
 
