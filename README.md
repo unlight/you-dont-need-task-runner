@@ -4,7 +4,7 @@ How to manage your workflow in shell without task runner (gulp, grunt, fly, just
 
 ## Table of Contents
 
--   [Articles](#articles)
+-   [Resources](#resources)
 
 -   [Recipes](#recipes)
 
@@ -15,12 +15,16 @@ How to manage your workflow in shell without task runner (gulp, grunt, fly, just
     -   [Compile TypeScript](#compile-typescript)
     -   [Copy files](#copy-files)
 
-## Articles
+## Resources
 
--   [Why I Left Gulp and Grunt for npm Scripts](https://medium.com/free-code-camp/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8)
+-   [Everything awesome related to npm scripts and using npm as a build tool](https://github.com/RyanZim/awesome-npm-scripts)
+-   [Why I Left Gulp and Grunt for npm Scripts](https://medium.com/free-code-camp/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8) - Article by Cory House
 -   [Build Automation with Vanilla JavaScript](https://medium.com/@tarkus/build-automation-with-vanilla-javascript-74639ec98bad)
--   [How to Use npm as a Build Tool](https://webcache.googleusercontent.com/search?q=cache:http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
--   [Why we should stop using Grunt & Gulp](https://webcache.googleusercontent.com/search?q=cache:https://www.keithcirkel.co.uk/why-we-should-stop-using-grunt/)
+-   [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) - Blog post by Keith Cirkel
+-   [Why we should stop using Grunt & Gulp](https://www.keithcirkel.co.uk/why-we-should-stop-using-grunt/)
+-   [Helpers and tips for npm run scripts](https://michael-kuehnel.de/tooling/2018/03/22/helpers-and-tips-for-npm-run-scripts.html) - Blog post by Michael Kühnel covering advanced topics
+-   [Advanced front-end automation with npm scripts](https://www.youtube.com/watch?v=0RYETb9YVrk) - Talk at Nordic.js 2015 by Kate Hudson
+-   [How to create a build system with npm scripts](http://www.penta-code.com/how-to-create-a-build-system-with-npm-scripts/) - Video tutorial series on setting up a front-end build system
 
 ## Recipes
 
